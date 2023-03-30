@@ -14,6 +14,7 @@ const albumsEl = document.querySelector('#album-wrapper')
 
 /*--------- Event Listeners ---------*/
 lyricBtnEl.addEventListener('click', getRandomLyric)
+albumsEl.addEventListener('click', checkAnswer)
 
 
 /*------------ Functions ------------*/
@@ -25,6 +26,18 @@ function getRandomLyric(){
   console.log(currentLyric)
   console.log(currentAlbum)
   render()
+}
+
+function checkAnswer(evt){
+  console.dir(evt.target)
+  if (albums[+evt.target.id] === currentAlbum) {
+    evt.target.style.backgroundColor = 'green'
+    evt.target.style.color = 'white'
+  }else {
+    evt.target.style.backgroundColor = 'red'
+    evt.target.style.color = 'gray'
+  }
+  
 }
 
 function setAlbums(){
@@ -39,9 +52,10 @@ function showLyric() {
 }
 
 function showAlbums() {
-  albums.forEach(album => {
+  albums.forEach( (album, idx) => {
     let albumEl = document.createElement('p')
     albumEl.className = 'album'
+    albumEl.id = idx
     albumEl.textContent = album
     albumsEl.appendChild(albumEl)
   })
