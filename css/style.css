@@ -12,7 +12,56 @@ html {
 }
 
 body {
-  background-color: gray;
+  background-color: rgb(193, 193, 193);
   font-family: sans-serif;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+button {
+  margin: 8px;
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 24px;
+  border-radius: 8px;
+  border: none;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin: 12px 0;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+#lyric-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#current-lyric {
+  font-size: 48px;
+  color: rgb(164, 0, 164);
+  text-align: center;
+}
+
+#album-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.album {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  padding: 10px;
+}
+
