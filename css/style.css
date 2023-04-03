@@ -34,7 +34,7 @@ button {
 }
 
 button:hover {
-  background-color: blueviolet;
+  background-color: rgb(164, 0, 164);
   color: white;
 }
 
@@ -56,9 +56,11 @@ h1 {
 }
 
 #lyric-wrapper > p {
-  font-size: 48px;
+  font-size: 36px;
   color: rgb(164, 0, 164);
   text-align: center;
+  padding: 0;
+  margin: 8px 0;
 }
 
 #album-wrapper {
@@ -76,5 +78,9 @@ h1 {
   border: 1px solid black;
   padding: 10px;
   cursor: pointer;
+}
+
+.album:hover {
+  border: 3px solid rgb(164, 0, 164);
 }
 
