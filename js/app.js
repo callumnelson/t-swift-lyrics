@@ -4,28 +4,47 @@ import lyrics from '../data/lyrics.json' assert { type: 'json'}
 
 /*------------ Variables ------------*/
 const albums = []
-let currentLyric, currentIndex, currentAlbum
+let randLyrics = []
+let streak
 
 
 /*---- Cached Element References ----*/
 const lyricBtnEl = document.querySelector('#lyric-button')
 const lyricEl = document.querySelector('#current-lyric')
+const lyricWrapEl = document.querySelector('#lyric-wrapper')
 const albumsEl = document.querySelector('#album-wrapper')
+const hintBtnEl = document.querySelector('#hint-button')
 
 /*--------- Event Listeners ---------*/
 lyricBtnEl.addEventListener('click', getRandomLyric)
 albumsEl.addEventListener('click', checkAnswer)
-
+hintBtnEl.addEventListener('click', getHint)
 
 /*------------ Functions ------------*/
 
 function getRandomLyric(){
-  currentIndex = Math.floor(Math.random()*lyrics.length)
-  currentLyric = lyrics[currentIndex].lyric
-  currentAlbum = lyrics[currentIndex].album_name
-  console.log(currentLyric)
-  console.log(currentAlbum)
+  randLyrics = []
+  let currentIndex = Math.floor(Math.random()*lyrics.length)
+  randLyrics.push(lyrics[currentIndex])
   render()
+}
+
+function getHint() {
+  //Only get a hint if there's a lyric currently
+  if (lyricWrapEl.hasChildNodes){
+    let hintLyric
+    let currentLyric = randLyrics[randLyrics.length-1]
+    let currentIndex = lyrics.indexOf(currentLyric)
+    if(lyrics[currentIndex+1].line < currentLyric.line) {
+      hintLyric = lyrics[currentIndex - 1]
+      randLyrics.unshift(hintLyric)
+    }else{
+      hintLyric = lyrics[currentIndex + 1]
+      randLyrics.push(hintLyric)
+    }
+    console.log(randLyrics)
+    render()
+  }
 }
 
 function checkAnswer(evt){
@@ -48,7 +67,11 @@ function setAlbums(){
 }
 
 function showLyric() {
-  lyricEl.textContent = currentLyric
+  randLyrics.forEach(lyric => {
+    let lyricEl = document.createElement('p')
+    lyricEl.textContent = lyric.lyric
+    lyricWrapEl.appendChild(lyricEl)
+  })
 }
 
 function showAlbums() {
@@ -62,6 +85,8 @@ function showAlbums() {
 }
 
 function render(){
+  //Clear children
+  lyricWrapEl.innerHTML = ''
   showLyric()
 }
 

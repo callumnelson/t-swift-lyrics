@@ -20,6 +20,10 @@ body {
   align-items: center;
 }
 
+.button-wrapper {
+  display: flex;
+}
+
 button {
   margin: 8px;
   cursor: pointer;
@@ -27,6 +31,11 @@ button {
   font-size: 24px;
   border-radius: 8px;
   border: none;
+}
+
+button:hover {
+  background-color: blueviolet;
+  color: white;
 }
 
 h1 {
@@ -41,9 +50,12 @@ h1 {
 #lyric-wrapper {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  border: 1px solid black;
+  margin: 10px;
 }
 
-#current-lyric {
+#lyric-wrapper > p {
   font-size: 48px;
   color: rgb(164, 0, 164);
   text-align: center;
