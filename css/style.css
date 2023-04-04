@@ -53,6 +53,7 @@ h1 {
   flex-direction: column;
   border: 1px solid black;
   margin: 10px;
+  min-height: 59px;
 }
 
 #lyric-wrapper > p {
@@ -70,13 +71,26 @@ h1 {
   gap: 15px;
 }
 
-.album {
+#song-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+#song-header {
+  display: none;
+  justify-content: center;
+}
+
+.album, .song {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-wrap: wrap;
   border: 1px solid black;
   padding: 10px;
+  margin: 4px;
   cursor: pointer;
 }
 
@@ -84,3 +98,6 @@ h1 {
   border: 3px solid rgb(164, 0, 164);
 }
 
+.song:hover {
+  border: 3px solid rgb(164, 0, 164);
+}
