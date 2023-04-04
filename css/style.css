@@ -94,10 +94,6 @@ h1 {
   cursor: pointer;
 }
 
-.album:hover {
-  border: 3px solid rgb(164, 0, 164);
-}
-
-.song:hover {
-  border: 3px solid rgb(164, 0, 164);
+.album:hover, .song:hover {
+  border: 1px solid rgb(164, 0, 164);
 }
